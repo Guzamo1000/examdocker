@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  fastapi:
+    build: 
+      context: .
+    ports:
+      - "8885:8885"
+    depends_on:
+      - mysql
+    environment:
+      - MYSQL_DATABASE=examdockerfile
+      - MYSQL_ROOT_PASSWORD=password
+    networks:
+      - dockerexample  # Liên kết dịch vụ này với mạng "dockerexample"
+
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: examdockerfile
+    networks:
+      - dockerexample  # Liên kết dịch vụ này với mạng "dockerexample"
+
+networks:
+  dockerexample:  # Định nghĩa mạng "dockerexample"

@@ -12,7 +12,7 @@ services:
       - MYSQL_DATABASE=examdockerfile
       - MYSQL_ROOT_PASSWORD=password
     networks:
-      - dockerexample  # Liên kết dịch vụ này với mạng "dockerexample"
+      - dockerexample
 
   mysql:
     image: mysql:5.7
@@ -20,7 +20,7 @@ services:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: examdockerfile
     networks:
-      - dockerexample  # Liên kết dịch vụ này với mạng "dockerexample"
+      - dockerexample
 
 networks:
-  dockerexample:  # Định nghĩa mạng "dockerexample"
+  dockerexample:
